@@ -94,10 +94,10 @@ function! AutoPairsInsert(key)
     let eol = 1
   end
 
-  " Ignore auto close if next character is not a blank
+  " Ignore auto close if next character is alphanumeric
   " i.e. '(word' will remain '(word' and not auto pair to '()word' which we'll
   " have to clean up
-  if next_char != ' ' && next_char != ''
+  if next_char =~ '\a'
     return a:key
   end
 
